@@ -22,7 +22,7 @@ The fieldtype will display as a field in the channel entry, yet it requires no d
 
 ## Future Improvements
 
-The Pages URI will only act once, on the initial page entry. Once you edit a page and change the Title, or URL Title, it will not update the Pages URL. You will need to manually click the Pages tab and edit it. So an idea for future developments is to provide an option in the fieldtype to keep the entry or update everytime. 
+The Pages URI will only act initially when you first enter a Title, then subsequently when you change the url_title. Once you edit a page and change the Title, it will not update the Pages URL to avoid broken link issues. You will need to manually click the Pages tab and edit it, or edit the url_title. So an idea for future developments is to provide an option in the fieldtype to keep the entry or update everytime. 
 
 ## Bugs & Feature Requests
 
