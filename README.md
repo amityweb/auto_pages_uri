@@ -26,7 +26,7 @@ The Pages URI will only act initially when you first enter a Title, then subsequ
 
 ## Bugs & Feature Requests
 
-[Issue tracker](http://github.com/amityweb/auto_pages_url/issues)
+[Issue tracker](https://github.com/amityweb/auto_pages_uri/issues)
 
 Before reporting bugs or requesting any features, please check that it does not already exist.
 
