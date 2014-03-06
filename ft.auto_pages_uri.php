@@ -24,7 +24,7 @@ class Auto_pages_uri_ft extends EE_Fieldtype {
 	* @return	field html
 	*
 	*/
-	function display_field()
+	function display_field($data)
 	{
 	
 		$this->EE->cp->add_to_head('
