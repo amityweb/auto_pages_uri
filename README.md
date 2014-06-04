@@ -32,4 +32,4 @@ Before reporting bugs or requesting any features, please check that it does not 
 
 ## Current version
 
-1.0
+1.2
