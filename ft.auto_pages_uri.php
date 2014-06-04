@@ -3,7 +3,7 @@
 * Auto Pages URI Fieldtype
 *
 * @package		AutoPagesURI
-* @version		1.1
+* @version		1.2
 * @author		Laurence Cope, Amity Web Solutions Ltd
 * @copyright 	Copyright (c) 2011 Amity Web Solutions Ltd <http://www.amitywebsolutions.co.uk>
 */
@@ -12,7 +12,7 @@ class Auto_pages_uri_ft extends EE_Fieldtype {
 
 	var $info = array(
 		'name'		=> 'Auto Pages URI',
-		'version'	=> '1.1'
+		'version'	=> '1.2'
 	);
 	
 	// --------------------------------------------------------------------
@@ -34,7 +34,7 @@ class Auto_pages_uri_ft extends EE_Fieldtype {
 				
 				var title = $("input[name=title]");
 				var pages__pages_uri = $("input[name=pages__pages_uri]");
-				var url_title = $("input[name=pages__pages_uri]");
+				var url_title = $("input[name=url_title]");
 				
 				$(title).keyup(function() { // Maybe use blur instead??
 					
