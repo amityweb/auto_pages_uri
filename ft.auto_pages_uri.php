@@ -32,33 +32,33 @@ class Auto_pages_uri_ft extends EE_Fieldtype {
 			
 			$(function() {
 				
-				var title = $("input[name=title]");
-				var pages__pages_uri = $("input[name=pages__pages_uri]");
-				var url_title = $("input[name=url_title]");
+				var title_field = $("input[name=title]");
+				var pages__pages_uri_field = $("input[name=pages__pages_uri]");
+				var url_title_field = $("input[name=url_title]");
 				
-				$(title).keyup(function() { // Maybe use blur instead??
+				$(title_field).keyup(function() { // Maybe use blur instead??
 					
 					var entry_id = "' . (isset($_GET['entry_id']) ? ''.$_GET['entry_id'].'' : '') . '";
 					if(!entry_id)
 					{
-						var page_url = ee_page_uri($(title));
-						$(pages__pages_uri).val(page_url);
+						var page_url = ee_page_uri($(title_field));
+						$(pages__pages_uri_field).val(page_url);
 					}
 				
 				});;
 				
 				
-				$(pages__pages_uri).keyup(function() { // Maybe use blur instead??
-					var url_title = ee_page_uri($(pages__pages_uri));
-					if($(url_title).val() != "home")
+				$(pages__pages_uri_field).keyup(function() { // Maybe use blur instead??
+					var url_title = ee_page_uri($(pages__pages_uri_field));
+					if($(url_title_field).val() != "home")
 					{
-						$(url_title).val(url_title);
+						$(url_title_field).val(url_title);
 					}
 				});;
 				
-				$(url_title).keyup(function() { // Maybe use blur instead??
-					var pages__pages_uri = ee_page_uri($(url_title));
-					$(pages__pages_uri).val(pages__pages_uri);
+				$(url_title_field).keyup(function() { // Maybe use blur instead??
+					var pages__pages_uri = ee_page_uri($(url_title_field));
+					$(pages__pages_uri_field).val(pages__pages_uri);
 				
 				});;
 				
