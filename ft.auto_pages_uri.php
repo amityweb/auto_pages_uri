@@ -3,7 +3,7 @@
 * Auto Pages URI Fieldtype
 *
 * @package		AutoPagesURI
-* @version		1.0
+* @version		1.1
 * @author		Laurence Cope, Amity Web Solutions Ltd
 * @copyright 	Copyright (c) 2011 Amity Web Solutions Ltd <http://www.amitywebsolutions.co.uk>
 */
@@ -12,7 +12,7 @@ class Auto_pages_uri_ft extends EE_Fieldtype {
 
 	var $info = array(
 		'name'		=> 'Auto Pages URI',
-		'version'	=> '1.0'
+		'version'	=> '1.1'
 	);
 	
 	// --------------------------------------------------------------------
@@ -24,33 +24,41 @@ class Auto_pages_uri_ft extends EE_Fieldtype {
 	* @return	field html
 	*
 	*/
-	function display_field($data)
+	public function display_field($data)
 	{
 	
 		$this->EE->cp->add_to_head('
 			<script type="text/javascript">
 			
 			$(function() {
-				$("#title").keyup(function() { // Maybe use blur instead??
+				
+				var title = $("input[name=title]");
+				var pages__pages_uri = $("input[name=pages__pages_uri]");
+				var url_title = $("input[name=pages__pages_uri]");
+				
+				$(title).keyup(function() { // Maybe use blur instead??
 					
 					var entry_id = "' . (isset($_GET['entry_id']) ? ''.$_GET['entry_id'].'' : '') . '";
 					if(!entry_id)
 					{
-						var page_url = ee_page_uri($("#title"));
-						$("#pages__pages_uri").val(page_url);
+						var page_url = ee_page_uri($(title));
+						$(pages__pages_uri).val(page_url);
 					}
 				
 				});;
 				
-				$("#pages__pages_uri").keyup(function() { // Maybe use blur instead??
-					var url_title = ee_page_uri($("#pages__pages_uri"));
-					$("#url_title").val(url_title);
 				
+				$(pages__pages_uri).keyup(function() { // Maybe use blur instead??
+					var url_title = ee_page_uri($(pages__pages_uri));
+					if($(url_title).val() != "home")
+					{
+						$(url_title).val(url_title);
+					}
 				});;
 				
-				$("#url_title").keyup(function() { // Maybe use blur instead??
-					var pages__pages_uri = ee_page_uri($("#url_title"));
-					$("#pages__pages_uri").val(pages__pages_uri);
+				$(url_title).keyup(function() { // Maybe use blur instead??
+					var pages__pages_uri = ee_page_uri($(url_title));
+					$(pages__pages_uri).val(pages__pages_uri);
 				
 				});;
 				
