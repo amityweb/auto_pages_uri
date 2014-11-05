@@ -3,7 +3,7 @@
 * Auto Pages URI Fieldtype
 *
 * @package		AutoPagesURI
-* @version		1.2
+* @version		1.0
 * @author		Laurence Cope, Amity Web Solutions Ltd
 * @copyright 	Copyright (c) 2011 Amity Web Solutions Ltd <http://www.amitywebsolutions.co.uk>
 */
@@ -12,7 +12,7 @@ class Auto_pages_uri_ft extends EE_Fieldtype {
 
 	var $info = array(
 		'name'		=> 'Auto Pages URI',
-		'version'	=> '1.2'
+		'version'	=> '1.0'
 	);
 	
 	// --------------------------------------------------------------------
@@ -24,41 +24,38 @@ class Auto_pages_uri_ft extends EE_Fieldtype {
 	* @return	field html
 	*
 	*/
-	public function display_field($data)
+	function display_field($data)
 	{
 	
-		$this->EE->cp->add_to_head('
+		$this->EE->cp->add_to_foot('
 			<script type="text/javascript">
 			
 			$(function() {
 				
 				var title_field = $("input[name=title]");
-				var pages__pages_uri_field = $("input[name=pages__pages_uri]");
 				var url_title_field = $("input[name=url_title]");
+				var pages__pages_uri_field = $("input[name=pages__pages_uri]");
 				
-				$(title_field).keyup(function() { // Maybe use blur instead??
+				title_field.keyup(function() { // Maybe use blur instead??
 					
 					var entry_id = "' . (isset($_GET['entry_id']) ? ''.$_GET['entry_id'].'' : '') . '";
 					if(!entry_id)
 					{
-						var page_url = ee_page_uri($(title_field));
-						$(pages__pages_uri_field).val(page_url);
+						var page_url = ee_page_uri(title_field);
+						pages__pages_uri_field.val(page_url);
 					}
 				
 				});;
 				
+				pages__pages_uri_field.keyup(function() { // Maybe use blur instead??
+					var url_title = ee_page_uri(pages__pages_uri_field);
+					url_title_field.val(url_title);
 				
-				$(pages__pages_uri_field).keyup(function() { // Maybe use blur instead??
-					var url_title = ee_page_uri($(pages__pages_uri_field));
-					if($(url_title_field).val() != "home")
-					{
-						$(url_title_field).val(url_title);
-					}
 				});;
 				
-				$(url_title_field).keyup(function() { // Maybe use blur instead??
-					var pages__pages_uri = ee_page_uri($(url_title_field));
-					$(pages__pages_uri_field).val(pages__pages_uri);
+				url_title_field.keyup(function() { // Maybe use blur instead??
+					var pages__pages_uri = ee_page_uri(url_title_field);
+					pages__pages_uri_field.val(pages__pages_uri);
 				
 				});;
 				
